@@ -15,3 +15,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+## je commente car ça facilite la tache pour la correction
+##/.env
+##/.env.dev
