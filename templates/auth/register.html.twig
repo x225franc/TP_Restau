@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        .register-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .register-container h1 {
+            margin-bottom: 1.5rem;
+        }
+        .register-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .register-container input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .register-container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .register-container button:hover {
+            background-color: #555;
+        }
+        .register-container a {
+            display: block;
+            margin-top: 1rem;
+            color: #333;
+            text-decoration: none;
+        }
+        .register-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    {% include 'partials/header.html.twig' %}
+    <main>
+        <div class="register-container">
+            <h1>Inscription</h1>
+            {{ form_start(form) }}
+                {{ form_row(form.firstName, {'attr': {'placeholder': 'Votre prénom'}}) }}
+                {{ form_row(form.lastName, {'attr': {'placeholder': 'Votre nom'}}) }}
+                {{ form_row(form.email, {'attr': {'placeholder': 'Votre adresse email'}}) }}
+                {{ form_row(form.password, {'attr': {'placeholder': 'Votre mot de passe'}}) }}
+                <button type="submit">S'inscrire</button>
+            {{ form_end(form) }}
+            <a href="{{ path('login') }}">Déjà inscrit ?</a>
+        </div>
+    </main>
+    {% include 'partials/footer.html.twig' %}
+{% endblock %}

@@ -1,0 +1,56 @@
+<style>
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 1rem 0;
+        text-align: center;
+    }
+    nav {
+        background-color: #444;
+        overflow: hidden;
+    }
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 0 1rem;
+    }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: block;
+    }
+    nav ul li a:hover {
+        background-color: #555;
+    }
+</style>
+<header>
+    <h1>La Restauratioooon</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="{{ path('home') }}">Accueil</a></li>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('menu_index') }}">Menu</a></li>
+                <li><a href="{{ path('reservation_index') }}">Réservation</a></li>
+                <li><a href="{{ path('table_index') }}">Table</a></li>
+                <li><a href="{{ path('restaurant_index') }}">Restaurant</a></li>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <li><a href="{{ path('admin') }}">Administration</a></li>
+            {% endif %}
+            <li><a href="{{ path('profile') }}">Bonjour, {{ app.user.firstName }} {{ app.user.lastName }}</a></li>
+            <li><a href="{{ path('logout') }}">Déconnexion</a></li>
+        {% else %}
+            <li><a href="{{ path('login') }}">Connexion</a></li>
+            <li><a href="{{ path('register') }}">Inscription</a></li>
+        {% endif %}
+    </ul>
+</nav>

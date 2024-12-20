@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        .profile-container {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .profile-container h1 {
+            margin-bottom: 1.5rem;
+        }
+        .profile-container p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+    </style>
+
+    {% include 'partials/header.html.twig' %}
+    <main>
+        <div class="profile-container">
+            <h1>Mon Profil</h1>
+            <p>Bonjour, {{ app.user.firstName }} {{ app.user.lastName }}</p>
+            <p>Email: {{ app.user.email }}</p>
+            <p>Rôles: {{ app.user.roles|map(role => role|replace({'ROLE_': ''}))|join(', ') }}</p>
+        </div>
+    </main>
+    {% include 'partials/footer.html.twig' %}
+{% endblock %}

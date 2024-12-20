@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Connexion
+{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+        .login-container {
+            max-width: 400px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .login-container h1 {
+            margin-bottom: 1.5rem;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container button:hover {
+            background-color: #555;
+        }
+        .login-container a {
+            display: block;
+            margin-top: 1rem;
+            color: #333;
+            text-decoration: none;
+        }
+        .login-container a:hover {
+            text-decoration: underline;
+        }
+        .alert {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+    </style>
+
+    {% include 'partials/header.html.twig' %}
+    <main>
+        <div class="login-container">
+            <h1>Connexion</h1>
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+                <div>
+                    <label for="_username">Email</label>
+                    <input type="text" id="_username" name="_username" value="{{ last_username }}" placeholder="Email" required autofocus>
+                </div>
+                <div>
+                    <label for="_password">Mot de passe</label>
+                    <input type="password" id="_password" name="_password" placeholder="Mot de passe" required>
+                </div>
+                <button type="submit">Se connecter</button>
+                <a href="{{ path('forgot') }}">Mot de passe oublié ?</a>
+                <a href="{{ path('register') }}">Pas encore inscrit ?</a>
+            </form>
+        </div>
+    </main>
+    {% include 'partials/footer.html.twig' %}
+{% endblock %}

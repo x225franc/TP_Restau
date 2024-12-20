@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accès non autorisé{% endblock %}
+
+{% block body %}
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #dc3545;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+        }
+        a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #17a2b8;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #138496;
+        }
+    </style>
+
+    <div class="container">
+        <h1>Accès interdit !</h1>
+        <p>Vous n'avez pas les droits nécessaires pour accéder à cette page.</p>
+        <a href="{{ path('home') }}">Retour à l'accueil</a>
+    </div>
+{% endblock %}

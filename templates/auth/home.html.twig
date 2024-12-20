@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Accueil
+        </title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            pad
+        }
+        nav {
+            background-color: #444;
+            overflow: hidden;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Align items vertically */
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+    </style>
+    </head>
+    <body>
+        {% include 'partials/header.html.twig' %}
+        <main>
+            <p>
+                Bienvenue sur La Restauratioooon ! Utilisez le menu ci-dessus pour naviguer.
+            </p>
+        </main>
+        {% include 'partials/footer.html.twig' %}
+    </body>
+</html>
