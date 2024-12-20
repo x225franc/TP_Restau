@@ -91,5 +91,7 @@ Pour tester la réinitialisation de mot de passe, vous pouvez inscrire une adres
    symfony server:start
    ```
 
+6. **C'est prêt !** :  
+
 ---
 
